@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'json'
   s.add_dependency 'rack'
   s.add_dependency 'escape'
-end
+  s.add_dependency 'rest-client', '~> 2'
+ end

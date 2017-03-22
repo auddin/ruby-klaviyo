@@ -1,11 +1,14 @@
 require 'open-uri'
 require 'base64'
 require 'json'
+require_relative '../klaviyo/lists'
 
 module Klaviyo
   class KlaviyoError < StandardError; end
   
   class Client
+    include Klaviyo::Lists
+
     def initialize(api_key, url = 'http://a.klaviyo.com/')
       @api_key = api_key
       @url = url
@@ -65,7 +68,7 @@ module Klaviyo
     def build_params(params)
       "data=#{CGI.escape Base64.encode64(JSON.generate(params)).gsub(/\n/,'')}"
     end
-    
+
     def request(path, params)
       url = "#{@url}#{path}?#{params}"
       open(url).read == '1'
