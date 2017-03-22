@@ -24,7 +24,6 @@ To automatically insert the Klaviyo script in your Rails app, add this to your e
 
 ```ruby
 require 'rack/klaviyo'
-config.middleware.use "Klaviyo::Client::Middleware", "YOUR_KLAVIYO_API_TOKEN"
 ```
 
 This will automatically insert the Klaviyo script at the bottom on your HTML page, right before the closing `body` tag.
